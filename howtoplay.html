@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>How to play</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="home.css">
+</head>
+<body>
+<div class="header">
+  <div class="a">How To Play</div>
+</div>
+  <div class="topnav">
+  <a href="http://codd.cs.gsu.edu/~ttran119/project2/home.html">Home</a>
+  <a href="http://codd.cs.gsu.edu/~ttran119/project2/howtoplay.html">How to Play</a>
+  <a href="http://codd.cs.gsu.edu/~ttran119/project2/gamepage.html">Game Page</a>
+  <a href="http://codd.cs.gsu.edu/~ttran119/project2/aboutus.html">About Us</a>
+  <a href="http://codd.cs.gsu.edu/~ttran119/index.html">Codd Home</a>
+</div>
+</div>
+<br><br><br><br>
+<div class="c">
+<p><strong>Example game: a player trying to guess the word hangman using a strategy based solely on letter frequency. As the player continues, a part of the stick figure on the noose is added. Once a full body is drawn, the game is over, and the player lost.</strong></p>
+<table class="center">
+  <tr>
+    <th>0</th>
+    <th><img src="0.png"></th>
+    <th>Word: HANGMAN<br>
+    	Guess: E<br>
+    Misses:</th>
+  </tr>
+  <tr>
+    <td>1</td>
+   <td><img src="1.png"></td>
+   <td>Word: _ _ _ _ _ _ _<br>
+    	Guess: T<br>
+    Misses: E</td>
+  </tr>
+  <tr><td>2</td>
+   <td><img src="2.png"></td>
+   <td>Word: _ _ _ _ _ _ _<br>
+    	Guess: A<br>
+    Misses: E,T</td></tr>
+  <tr><td>3</td>
+   <td><img src="2.png"></td>
+   <td>Word: _ A _ _ _ A _<br>
+    	Guess: O<br>
+    Misses: E,T</td>
+  </tr>
+  <tr><td>4</td>
+   <td><img src="4.png"></td>
+   <td>Word: _ A _ _ _ A _<br>
+    	Guess: I<br>
+    Misses: E,T,O</td>
+  </tr>
+  <tr><td>5</td>
+   <td><img src="5.png"></td>
+   <td>Word: _ A _ _ _ A _<br>
+    	Guess: S<br>
+    Misses: E,I,O,T</td>
+  </tr>
+  <tr><td>6</td>
+   <td><img src="6.png"></td>
+   <td>Word: _ A _ _ _ A _<br>
+    	Guess: N<br>
+    Misses: E,I,O,S,T</td></tr>
+    <tr><td>7</td>
+   <td><img src="7.png"></td>
+   <td>Word: _ A N _ _ A N<br>
+    	Guess: R<br>
+    Misses: E,I,O,S,T</td></tr>
+    <tr><td>8</td>
+   <td><img src="8.png"></td>
+   <td>Word: _ A N _ _ A N<br>
+    	Guess: <br>
+    Misses: E,I,O,S,T</td></tr>
+</table>
+<br><br>
+<p>The guessing player has lost this game as the diagram had been completed before all the letters were guessed.</p>
+</div>
+</body>
+</html>
