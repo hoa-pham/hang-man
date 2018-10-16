@@ -24,7 +24,7 @@
         }
         
         if($_POST['uname'] == "my_admin" &&  $_POST['psw'] == "mohamedali"){
-            header('Location:success.html');
+            header('Location:action_page.php');
             exit();
         }else{
             $errors['uname4'] = "AH AH AH thats not it";

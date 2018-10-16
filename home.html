@@ -11,7 +11,7 @@
   <div class="a">Hangman</div>
 </div>
 <div class="topnav">
-  <a href="http://codd.cs.gsu.edu/~ttran119/project2/home.html">Home</a>
+  <a href="http://codd.cs.gsu.edu/~hpham24/project2/home.html">Home</a>
   <a href="http://codd.cs.gsu.edu/~ttran119/project2/howtoplay.html">How to Play</a>
   <a href="http://codd.cs.gsu.edu/~ttran119/project2/gamepage.html">Game Page</a>
   <a href="http://codd.cs.gsu.edu/~ttran119/project2/aboutus.html">About Us</a>
@@ -44,13 +44,14 @@
 </div>
 <!-- form start here -->
 <br><br>
-<div class="b">Think You Can Beat #1 ?</div>
+<div class="b">Think You Can Beat</div>
+<div class="b">#1 ?</div>
 
 <center><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Play Now!!!</button></center>
 
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" action="http://codd.cs.gsu.edu/~hpham24/project2/action_page.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="hang1.gif" alt="logo" class="avatar">
@@ -63,7 +64,7 @@
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
         
-      <button type="submit" >Login</button>
+      <button type="submit" name='submit'value='Login' >Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>

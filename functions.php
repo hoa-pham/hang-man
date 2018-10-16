@@ -84,20 +84,22 @@
     function checkGameOver($MAX_ATTEMPTS,$userAttempts, $answer, $hidden)
     {
         if ($userAttempts >= $MAX_ATTEMPTS)
-            {
-                echo "Game Over. The correct word was ";
+            {	
+		echo '<h1 style="color: red">';
+                echo "Game Over. The correct word is:  ";
                 foreach ($answer as $letter) echo $letter;
+		echo '</h1>';
                 echo '<br><form action = "" method = "post"><input type = "submit" name' + 
                   ' = "newWord" value = "Try another Word"/></form><br>';
-                die();
             }
             if ($hidden == $answer)
-            {
-                echo "Game Over. The correct word is indeed ";
+            {	
+		echo '<h1 style="color:red">';
+                echo "Game Over. The correct word is:  ";
                 foreach ($answer as $letter) echo $letter;
+		echo "</h1>";
                 echo '<br><form action = "" method = "post"><input ' + 
                   'type = "submit" name = "newWord" value = "Try another Word"/></form><br>';
-                die();
             }
     }
 ?>
