@@ -24,7 +24,7 @@
         }
         
         if($_POST['uname'] == "my_admin" &&  $_POST['psw'] == "mohamedali"){
-            header('Location:action_page.php');
+            header('Location:hangman.php');
             exit();
         }else{
             $errors['uname4'] = "AH AH AH thats not it";
@@ -79,7 +79,6 @@
 <div class="topnav">
 <a href="http://codd.cs.gsu.edu/~ttran119/project2/home.html">Home</a>
 <a href="http://codd.cs.gsu.edu/~ttran119/project2/howtoplay.html">How to Play</a>
-<a href="http://codd.cs.gsu.edu/~ttran119/project2/gamepage.html">Game Page</a>
 <a href="http://codd.cs.gsu.edu/~ttran119/project2/aboutus.html">About Us</a>
 <a href="http://codd.cs.gsu.edu/~ttran119/index.html">Codd Home</a>
 </div>
