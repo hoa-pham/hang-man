@@ -1,35 +1,48 @@
 <?php
     
-    if ('POST' === $_SERVER['REQUEST_METHOD']){
+    #display_errors = on;
+
+    
+    // starting a new session
+    session_start();
+
+    if(isset($_POST['uname'], $_POST['psw'])){
         
+        $uname= "my_admin";
+        $psw = "password";
         
-        #not empty
-        #atleast 6 characters long
+        if($_POST['uname'] == $uname && $_POST['psw'] == $psw) {
         
-        # array holds errors
-        $errors = array();
-        
+            $_SESSION["uname"] = "my_admin";
+            $_SESSION["psw"] = "password";
+            
+            header('Location:hangman.php');
+            
+            # array holds errors
+            $errors = array();
+            
         # validation starts here
         if(empty($_POST['uname'])){
             $errors['uname1'] = "Your name cannot be empty";
         }
         
+            # check strlength
         if(strlen($_POST['uname']) < 6){
             $errors['uname2'] = "Must be longer than 6 characters";
         }
         
+            # check username
         if ($_POST['uname'] !== "my_admin"){
             $errors['uname3'] = "You are not the admin";
 
         }
         
-        if($_POST['uname'] == "my_admin" &&  $_POST['psw'] == "mohamedali"){
+        if($_POST['uname'] == "my_admin" &&  $_POST['psw'] == "password"){
             header('Location:hangman.php');
             exit();
         }else{
-            $errors['uname4'] = "AH AH AH thats not it";
+            $errors['uname4'] = "Please try again";
         }
-        
         
         
         if(empty($_POST['psw'])){
@@ -40,22 +53,21 @@
             $errors['psw2'] = "Must be longer than 6 characters";
         }
         
-        if($_POST['psw'] !== "mohamedali"){
+        if($_POST['psw'] !== "password"){
             $errors['ps3'] = "AH AH AH thats not it";
         }else{
-            header('Location:success.html');
+            header('Location:hangman.php');
             exit();
         }
         
         
         if(count($errors) == 0){
-            
             # redirect to the game page
-            header('Location:success.html');
+            header('Location:hangman.php');
             exit();
         }
     }
-    
+}
     
     ?>
 
@@ -79,6 +91,7 @@
 <div class="topnav">
 <a href="http://codd.cs.gsu.edu/~ttran119/project2/home.html">Home</a>
 <a href="http://codd.cs.gsu.edu/~ttran119/project2/howtoplay.html">How to Play</a>
+<a href="http://codd.cs.gsu.edu/~ttran119/project2/gamepage.html">Game Page</a>
 <a href="http://codd.cs.gsu.edu/~ttran119/project2/aboutus.html">About Us</a>
 <a href="http://codd.cs.gsu.edu/~ttran119/index.html">Codd Home</a>
 </div>
@@ -95,15 +108,13 @@
 <td>Leader Board</td>
 </tr>
 <tr>
-<td>1st. John : 4 guess</td> </tr>
-<tr>
-<td>2nd. Ali : 6 Guesses</td>
+<td>1nd. Ali : 3 Guesses</td>
 </tr>
 <tr>
-<td>3rd. Hoa : 7 Guesses</td>
+<td>2rd. Hoa : 4 Guesses</td>
 </tr>
 <tr>
-<td>4th. Allen : 8 Guesses</td>
+<td>3th. Tien : 5 Guesses</td>
 </tr>
 </table>
 </div>
@@ -158,10 +169,11 @@
 <?php if(isset($errors['psw3'])) echo $errors['psw3'];  ?>
 </p>
 
-<button type="submit" value="submit">Login</button>
+<button name="check" type="submit" value="submit">Login</button>
 </div>
 </form>
 
 </body>
 
 </html>
+
