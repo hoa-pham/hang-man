@@ -3,8 +3,8 @@
 
 require_once 'hangedman.php';
 
-$words = array('VIETNAM', 'PEOPLE', 'PYTHON');
-$numwords = 0;
+$words = array('VIETNAM', 'PEOPLE', 'PYTHON', 'JAVA', 'SOMALIA', 'PIRATES');
+$numwords = 6;
 
 function printPage($image, $guesstemplate, $which, $guessed, $wrong) {
   echo <<<ENDPAGE
