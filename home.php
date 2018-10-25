@@ -1,73 +1,73 @@
 <?php
     
+    
+    # array holds errors
+    $errors = array();
+    $uname = "my_admin";
+    $psw = "password";
     #display_errors = on;
-
+    
     
     // starting a new session
     session_start();
-
-    if(isset($_POST['uname'], $_POST['psw'])){
-        
-        $uname= "my_admin";
-        $psw = "password";
+    
+    
+        // check if form is submitted
+        if (isset($_POST['check'])) {
+       
         
         if($_POST['uname'] == $uname && $_POST['psw'] == $psw) {
-        
-            $_SESSION["uname"] = "my_admin";
-            $_SESSION["psw"] = "password";
             
             header('Location:hangman.php');
-            
-            # array holds errors
-            $errors = array();
-            
-        # validation starts here
-        if(empty($_POST['uname'])){
-            $errors['uname1'] = "Your name cannot be empty";
         }
-        
+            # validation starts here
+            if(empty($_POST['uname'])){
+                $errors['uname1'] = "Your name cannot be empty";
+            }
+            
             # check strlength
-        if(strlen($_POST['uname']) < 6){
-            $errors['uname2'] = "Must be longer than 6 characters";
-        }
-        
+            if(strlen($_POST['uname']) < 6){
+                $errors['uname2'] = "Must be longer than 6 characters";
+            }
+            
             # check username
-        if ($_POST['uname'] !== "my_admin"){
-            $errors['uname3'] = "You are not the admin";
-
+            if ($_POST['uname'] !== "my_admin"){
+                $errors['uname3'] = "You are not the admin";
+                
+            }
+            
+            if($_POST['uname'] == "my_admin" &&  $_POST['psw'] == "password"){
+                header('Location:hangman.php');
+                exit();
+            }else{
+                $errors['uname4'] = "Please try again";
+            }
+            
+            
+            if(empty($_POST['psw'])){
+                $errors['psw1'] = "Your password cannot be empty";
+            }
+            
+            if(strlen($_POST['psw']) < 6){
+                $errors['psw2'] = "Must be longer than 6 characters";
+            }
+            
+            if($_POST['psw'] !== "password"){
+                $errors['ps3'] = "AH AH AH thats not it";
+            }else{
+                header('Location:hangman.php');
+                exit();
+            }
+            
+            
+            if(count($errors) == 0){
+                # redirect to the game page
+                header('Location:hangman.php');
+                exit();
+            }
         }
-        
-        if($_POST['uname'] == "my_admin" &&  $_POST['psw'] == "password"){
-            header('Location:hangman.php');
-            exit();
-        }else{
-            $errors['uname4'] = "Please try again";
-        }
-        
-        
-        if(empty($_POST['psw'])){
-            $errors['psw1'] = "Your password cannot be empty";
-        }
-        
-        if(strlen($_POST['psw']) < 6){
-            $errors['psw2'] = "Must be longer than 6 characters";
-        }
-        
-        if($_POST['psw'] !== "password"){
-            $errors['ps3'] = "AH AH AH thats not it";
-        }else{
-            header('Location:hangman.php');
-            exit();
-        }
-        
-        
-        if(count($errors) == 0){
-            # redirect to the game page
-            header('Location:hangman.php');
-            exit();
-        }
-    }
-}
+    
+    
     
     ?>
 
@@ -140,15 +140,15 @@
 <input type="text" placeholder="Enter Username" name="uname">
 <p>
 <?php if(isset($errors['uname1']))
-        echo $errors['uname1'];  ?>
+    echo $errors['uname1'];  ?>
 </p>
 <p>
 <?php if(isset($errors['uname2']))
-        echo $errors['uname2'];  ?>
+    echo $errors['uname2'];  ?>
 </p>
 <p>
 <?php if(isset($errors['uname3']))
-        echo $errors['uname3'];  ?>
+    echo $errors['uname3'];  ?>
 </p>
 <p>
 <?php if(isset($errors['uname4']))
@@ -176,4 +176,6 @@
 </body>
 
 </html>
+
+
 
